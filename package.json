@@ -1,9 +1,12 @@
 {
   "name": "nepali-date-carburettor",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
   "repository": "git remote add origin https://github.com/puzansakya/nepali-date-carburettor.git",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "build": "node script/build.js",
     "test": "vitest"
