@@ -1,19 +1,33 @@
 {
-  "name": "nepali-date-carburettor",
-  "version": "1.0.2",
+  "name": "nepali-date-carburettor-xx",
+  "version": "0.0.1",
   "description": "",
-  "main": "index.js",
-  "repository": "git remote add origin https://github.com/puzansakya/nepali-date-carburettor.git",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "homepage": "https://github.com/puzansakya/nepali-date-carburettor",
+  "bugs": {
+    "url": "https://github.com/puzansakya/nepali-date-carburettor"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/puzansakya/nepali-date-carburettor.git"
+  },
+  "license": "MIT",
+  "author": "Puzan Sakya",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "/lib"
+  ],
   "scripts": {
     "build": "node script/build.js",
+    "release:major": "npm version major --no-commit-hooks && git push --follow-tags",
+    "release:minor": "npm version minor --no-commit-hooks && git push --follow-tags",
+    "release:patch": "npm version patch --no-commit-hooks && git push --follow-tags",
     "test": "vitest"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "dayjs": "^1.11.11",
     "esbuild": "^0.21.5",

@@ -4,7 +4,7 @@ const { Generator } = require('npm-dts');
 
 new Generator({
     entry: 'src/index.ts',
-    output: 'build/index.d.ts',
+    output: 'lib/index.d.ts',
 }).generate();
 
 let external_deps = [];
@@ -28,13 +28,13 @@ const sharedConfig = {
 
 build({
     ...sharedConfig,
+    outfile: "lib/index.js",
     platform: 'node', // for CJS
-    outfile: "build/index.js",
 });
 
 build({
     ...sharedConfig,
-    outfile: "build/index.esm.js",
+    outfile: "lib/index.esm.js",
     platform: 'node', // for ESM
     format: "esm",
 });

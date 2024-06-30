@@ -21,14 +21,14 @@ pnpm add nepali-date-carburettor
 #### Ad to Bs
 
 ```ts
-import {AdToB} from "nepali-date-carburettor"
+import {ADToBS} from "nepali-date-carburettor"
 
 const convertedNepaliDate = ADToBS('2024-06-14'); // 2081-02-32
 ```
 
 #### Bs to Ad
 ```ts
-import {BsToAd} from "nepali-date-carburettor"
+import {BSToAD} from "nepali-date-carburettor"
 
-const convertedNepaliDate = ADToBS('2081-02-32'); // 2024-06-14
+const convertedNepaliDate = BSToAD('2081-02-32'); // 2024-06-14
 ```
