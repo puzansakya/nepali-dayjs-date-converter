@@ -1,8 +1,9 @@
 {
-  "name": "nepali-dayjs",
+  "name": "nepali-date-carburettor",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "repository": "git remote add origin https://github.com/puzansakya/nepali-date-carburettor.git",
   "scripts": {
     "build": "node script/build.js",
     "test": "vitest"
