@@ -1,4 +1,5 @@
-export { ADToBS } from './ad-to-bs';
-export { BSToAD } from './bs-to-ad';
+import { ADToBS } from './ad-to-bs';
+import { BSToAD } from './bs-to-ad';
+import { getDaysInMonthMap as lookUp } from './get-days-in-month-map';
 
-export { getDaysInMonthMap as lookUp } from './get-days-in-month-map';
+export { ADToBS, BSToAD, lookUp };
