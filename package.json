@@ -2,9 +2,9 @@
   "name": "nepali-dayjs-date-converter",
   "version": "0.5.0",
   "description": "",
-  "main": "./lib/index.js",
-  "module": "./lib/index.esm.js",
-  "types": "./lib/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.esm.js",
+  "types": "./dist/index.d.ts",
   "homepage": "https://github.com/puzansakya/nepali-dayjs-date-converter",
   "bugs": {
     "url": "https://github.com/puzansakya/nepali-dayjs-date-converter"
@@ -19,7 +19,7 @@
     "lib": "lib"
   },
   "files": [
-    "/lib"
+    "/dist"
   ],
   "scripts": {
     "build": "node script/build.js",
