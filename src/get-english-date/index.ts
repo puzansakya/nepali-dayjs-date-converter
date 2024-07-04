@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import { getDaysInMonthMap } from '../get-days-in-month-map';
+import { getDaysInMonthMap } from '../get-days-in-month-map/index.old';
 import { isNepDateInConversionRange } from '../is-nep-date-in-conversion-range';
 import { stitchDate } from '../stitch-date';
 
