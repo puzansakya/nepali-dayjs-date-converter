@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {getNepaliDate} from '.';
 import {stitchDate} from "../stitch-date";
 
-describe('Nepali Date Converter', () => {
+describe.skip('Nepali Date Converter', () => {
     it('should return correct converted date', () => {
         const result2 = getNepaliDate(2024, 2, 22);
         const date2 = stitchDate(

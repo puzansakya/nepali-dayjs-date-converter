@@ -5,19 +5,30 @@ import path from "path"
 import {differenceInCalendarDays} from "date-fns"
 const fetch = async () => {
     try {
-        let d = {}
         let x = []
         const fres = await fs.readdir(path.join(__dirname, "./mock"))
 
+        
         fres.forEach(item => {
-            d[item] = {};
             let mm = []
-
+            
+            
+            // let first = "";
+            // let last = "";
+            
             let sum = 0;
             [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].forEach(async num => {
+                // if(num ===1) {
+                //     first = 
+                // }
+
                 const x = readFileSync(path.join(__dirname, `./mock/${item}/${num}.json`), "utf-8");
 
+
+
                 const parsed = JSON.parse(x)
+                console.log(parsed.metadata.en);
+
                 let hasO = false
                 const dx = parsed.days.map(o => o.n).filter(o => {
                     if (o === "१") {
@@ -26,15 +37,13 @@ const fetch = async () => {
                     return o && hasO && o.length >= 1
                 })
 
-                d[item][num] = dx.length;
                 sum += dx.length
-                d[item][13] = sum
 
                 mm.push(dx.length)
-                
-                
             });
+
             mm.push(sum)
+            mm.push(333)
 
             x.push(
                 `daysInMonthMap.set(${item}, [0, ${mm.join(", ")}]);`
@@ -51,7 +60,7 @@ const fetch = async () => {
 
 }
 
-export const engFetch = () => {
+ const engFetch = () => {
     const result = differenceInCalendarDays(
         new Date(),
         new Date("1943-04-13")
@@ -64,8 +73,8 @@ export const engFetch = () => {
 }
 
 export const main = async () => {
-    // await fetch()
-    await engFetch()
+    await fetch()
+    // await engFetch()
 
 
 }

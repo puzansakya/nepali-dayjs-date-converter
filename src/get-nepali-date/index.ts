@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import { getDaysInMonthMap } from '../get-days-in-month-map/index.old';
+import { getDaysInMonthMap } from '../get-days-in-month-map';
 import { isEngDateInConversionRange } from '../is-eng-date-in-conversion-range';
 import { stitchDate } from '../stitch-date';
 
@@ -21,7 +21,7 @@ export const getNepaliDate = (
   if (isEngDateInConversionRange(engYY, engMM, engDD)) {
     const startingEngYear = 1943;
     const startingEngMonth = 4;
-    const startingEngDay = 13;
+    const startingEngDay = 14;
 
     // start day of week for 1913/4/13 is Sunday  as 1
 
@@ -34,13 +34,11 @@ export const getNepaliDate = (
     const base = new Date(
       stitchDate(startingEngYear, startingEngMonth, startingEngDay),
     );
-    const eng_stiched_date = new Date(stitchDate(engYY, engMM, engDD)); // July 24th
+    const eng_stiched_date = new Date(stitchDate(engYY, engMM, engDD));
 
-    let totalEngDaysCount = Math.ceil(dayjs(eng_stiched_date).diff(base, 'day', true));
+    let totalEngDaysCount = dayjs(eng_stiched_date).diff(base, 'day');
 
-console.log({
-  totalEngDaysCount
-})
+
     // if (dayjs(eng_stiched_date).isAfter(dayjs("2020-12-31")) && dayjs(eng_stiched_date).isBefore(dayjs("2022-01-01"))) {
     //   totalEngDaysCount ++
     // } 
@@ -49,14 +47,25 @@ console.log({
     nepMM = startingNepMonth;
     nepDD = startingNepDay;
 
+
+
+
     const lookUp = getDaysInMonthMap();
 
+    {
+      2000: "1944-04-13",
+      2001: "1945-04-13",
+    }
     // added block
     const yearsDiff = engYY - startingEngYear;
-    const nepYYThreshold = startingNepYear + yearsDiff - (engYY > 4 ? 1 : 0);
+    const nepYYThreshold = startingNepYear + yearsDiff - (engMM < 4 ? 1 : 0);
     // added block
 
-    while (totalEngDaysCount !== 0) {
+    // console.log({
+    //   totalEngDaysCount,engYY, nepYY, nepMM, nepYYThreshold, yearsDiff
+    // })
+    
+    while (totalEngDaysCount > 0) {
       if (nepYY < nepYYThreshold) {
         nepDD = 1;
         nepMM = 1;
