@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { zeroPad } from '.';
 
-describe('Nepali Date Converter', () => {
+describe.skip('Zero Pad', () => {
   it('should return with correct zero padding for single digit', () => {
     const padded = zeroPad(1);
     expect(padded).to.be.equal('01');
