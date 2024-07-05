@@ -21,14 +21,14 @@ pnpm add nepali-dayjs-date-converter
 #### Ad to Bs
 
 ```ts
-import {ADToBS} from "nepali-dayjs-date-converter"
+import {ad2bs} from "nepali-dayjs-date-converter"
 
-const convertedNepaliDate = ADToBS('2024-06-14'); // 2081-02-32
+const convertedNepaliDate = ad2bs('2024-06-14'); // 2081-02-32
 ```
 
 #### Bs to Ad
 ```ts
-import {BSToAD} from "nepali-dayjs-date-converter"
+import {bs2ad} from "nepali-dayjs-date-converter"
 
-const convertedNepaliDate = BSToAD('2081-02-32'); // 2024-06-14
+const convertedNepaliDate = bs2ad('2081-02-32'); // 2024-06-14
 ```
