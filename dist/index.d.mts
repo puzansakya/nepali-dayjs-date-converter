@@ -394,6 +394,8 @@ declare const lookUp: {
 
 declare const isDateInConversionRange: (date: string, isNepali: boolean) => boolean;
 
+declare const zero_pad: (x: number) => string;
+
 declare const MAX_ENG_YEAR = 2033;
 declare const MAX_ENG_MONTH = 4;
 declare const MAX_ENG_DAY = 13;
@@ -407,4 +409,4 @@ declare const MIN_NEP_YEAR = 2000;
 declare const MIN_NEP_MONTH = 1;
 declare const MIN_NEP_DAY = 1;
 
-export { ad2bs as ADToBS, bs2ad as BSToAD, MAX_ENG_DAY, MAX_ENG_MONTH, MAX_ENG_YEAR, MAX_NEP_DAY, MAX_NEP_MONTH, MAX_NEP_YEAR, MIN_ENG_DAY, MIN_ENG_MONTH, MIN_ENG_YEAR, MIN_NEP_DAY, MIN_NEP_MONTH, MIN_NEP_YEAR, ad2bs, bs2ad, isDateInConversionRange, lookUp };
+export { ad2bs as ADToBS, bs2ad as BSToAD, MAX_ENG_DAY, MAX_ENG_MONTH, MAX_ENG_YEAR, MAX_NEP_DAY, MAX_NEP_MONTH, MAX_NEP_YEAR, MIN_ENG_DAY, MIN_ENG_MONTH, MIN_ENG_YEAR, MIN_NEP_DAY, MIN_NEP_MONTH, MIN_NEP_YEAR, ad2bs, bs2ad, isDateInConversionRange, lookUp, zero_pad };

@@ -16,7 +16,7 @@ import {
   MIN_NEP_DAY,
 } from "../constants"
 
-import { zeroPad } from "../zero-pad"
+import { zero_pad } from "../zero-pad"
 
 export const isDateInConversionRange = (
   date: string, isNepali: boolean,
@@ -27,14 +27,14 @@ export const isDateInConversionRange = (
   const a = parseInt(`${yy}${mm}${dd}`)
 
   if (isNepali) {
-    const x = parseInt(`${MIN_NEP_YEAR}${zeroPad(MIN_NEP_MONTH)}${zeroPad(MIN_NEP_DAY)}`)
-    const y = parseInt(`${MAX_NEP_YEAR}${zeroPad(MAX_NEP_MONTH)}${zeroPad(MAX_NEP_DAY)}`)
+    const x = parseInt(`${MIN_NEP_YEAR}${zero_pad(MIN_NEP_MONTH)}${zero_pad(MIN_NEP_DAY)}`)
+    const y = parseInt(`${MAX_NEP_YEAR}${zero_pad(MAX_NEP_MONTH)}${zero_pad(MAX_NEP_DAY)}`)
 
     return a >= x && a <= y
     
   } else {
-    const x = parseInt(`${MIN_ENG_YEAR}${zeroPad(MIN_ENG_MONTH)}${zeroPad(MIN_ENG_DAY)}`)
-    const y = parseInt(`${MAX_ENG_YEAR}${zeroPad(MAX_ENG_MONTH)}${zeroPad(MAX_ENG_DAY)}`)
+    const x = parseInt(`${MIN_ENG_YEAR}${zero_pad(MIN_ENG_MONTH)}${zero_pad(MIN_ENG_DAY)}`)
+    const y = parseInt(`${MAX_ENG_YEAR}${zero_pad(MAX_ENG_MONTH)}${zero_pad(MAX_ENG_DAY)}`)
     
     return a >= x && a <= y
   }

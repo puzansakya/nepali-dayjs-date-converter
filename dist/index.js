@@ -47,7 +47,8 @@ __export(src_exports, {
   ad2bs: () => ad2bs,
   bs2ad: () => bs2ad,
   isDateInConversionRange: () => isDateInConversionRange,
-  lookUp: () => look_up_default
+  lookUp: () => look_up_default,
+  zero_pad: () => zero_pad
 });
 module.exports = __toCommonJS(src_exports);
 
@@ -1908,7 +1909,7 @@ var lookUp = {
 var look_up_default = lookUp;
 
 // src/zero-pad/index.ts
-var zeroPad = (x) => {
+var zero_pad = (x) => {
   return x > 9 ? `${x}` : `0${x}`;
 };
 
@@ -1955,7 +1956,7 @@ var ad2bs = (date) => {
     adjusted_diff--;
   }
   let resolved_year = value_arr[found_index].year;
-  return `${resolved_year}-${zeroPad(nep_mm)}-${zeroPad(nep_dd)}`;
+  return `${resolved_year}-${zero_pad(nep_mm)}-${zero_pad(nep_dd)}`;
 };
 var bs2ad = (date) => {
   const [year, month, day] = date.split("-");
@@ -2001,12 +2002,12 @@ var isDateInConversionRange = (date, isNepali) => {
   const [yy, mm, dd] = date.split("-");
   const a = parseInt(`${yy}${mm}${dd}`);
   if (isNepali) {
-    const x = parseInt(`${MIN_NEP_YEAR}${zeroPad(MIN_NEP_MONTH)}${zeroPad(MIN_NEP_DAY)}`);
-    const y = parseInt(`${MAX_NEP_YEAR}${zeroPad(MAX_NEP_MONTH)}${zeroPad(MAX_NEP_DAY)}`);
+    const x = parseInt(`${MIN_NEP_YEAR}${zero_pad(MIN_NEP_MONTH)}${zero_pad(MIN_NEP_DAY)}`);
+    const y = parseInt(`${MAX_NEP_YEAR}${zero_pad(MAX_NEP_MONTH)}${zero_pad(MAX_NEP_DAY)}`);
     return a >= x && a <= y;
   } else {
-    const x = parseInt(`${MIN_ENG_YEAR}${zeroPad(MIN_ENG_MONTH)}${zeroPad(MIN_ENG_DAY)}`);
-    const y = parseInt(`${MAX_ENG_YEAR}${zeroPad(MAX_ENG_MONTH)}${zeroPad(MAX_ENG_DAY)}`);
+    const x = parseInt(`${MIN_ENG_YEAR}${zero_pad(MIN_ENG_MONTH)}${zero_pad(MIN_ENG_DAY)}`);
+    const y = parseInt(`${MAX_ENG_YEAR}${zero_pad(MAX_ENG_MONTH)}${zero_pad(MAX_ENG_DAY)}`);
     return a >= x && a <= y;
   }
 };
@@ -2029,5 +2030,6 @@ var isDateInConversionRange = (date, isNepali) => {
   ad2bs,
   bs2ad,
   isDateInConversionRange,
-  lookUp
+  lookUp,
+  zero_pad
 });
