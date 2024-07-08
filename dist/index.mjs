@@ -2,7 +2,7 @@
 import dayjs from "dayjs";
 
 // src/converter/look-up.ts
-var lookUp = {
+var dataset = {
   "365": {
     "year": 2e3,
     "month_days": [
@@ -1828,6 +1828,31 @@ var lookUp = {
     ]
   }
 };
+var queryMonthDays = (year) => {
+  if (typeof year === "string") {
+    year = parseInt(year);
+  }
+  const value_arr = Object.values(dataset);
+  const found = value_arr.find((o) => {
+    return o.year === year;
+  });
+  return found?.month_days;
+};
+var queryDays = (year, month) => {
+  if (typeof year === "string") {
+    year = parseInt(year);
+  }
+  if (typeof month === "string") {
+    month = parseInt(month);
+  }
+  return queryMonthDays(year)?.[month];
+};
+var lookUp = {
+  dataset,
+  queryMonthDays,
+  queryDays
+};
+var look_up_default = lookUp;
 
 // src/zero-pad/index.ts
 var zeroPad = (x) => {
@@ -1857,8 +1882,8 @@ var binarySearch = (arr, target) => {
 };
 var ad2bs = (date) => {
   const total_days = dayjs(date).diff(en_ref_date, "day");
-  const accumulator_arr = Object.keys(lookUp).map((o) => parseInt(o));
-  const value_arr = Object.values(lookUp);
+  const accumulator_arr = Object.keys(look_up_default.dataset).map((o) => parseInt(o));
+  const value_arr = Object.values(look_up_default.dataset);
   const found_index = binarySearch(accumulator_arr, total_days);
   let diff = total_days - accumulator_arr[found_index];
   let adjusted_diff = diff < 0 ? total_days - accumulator_arr[found_index - 1] : diff;
@@ -1881,8 +1906,8 @@ var ad2bs = (date) => {
 };
 var bs2ad = (date) => {
   const [year, month, day] = date.split("-");
-  const accumulator_arr = Object.keys(lookUp).map((o) => parseInt(o));
-  const value_arr = Object.values(lookUp);
+  const accumulator_arr = Object.keys(look_up_default.dataset).map((o) => parseInt(o));
+  const value_arr = Object.values(look_up_default.dataset);
   const found_index = value_arr.findIndex((o) => {
     return o.year === parseInt(year);
   });
@@ -1933,8 +1958,10 @@ var isDateInConversionRange = (date, isNepali) => {
   }
 };
 export {
+  ad2bs as ADToBS,
+  bs2ad as BSToAD,
   ad2bs,
   bs2ad,
   isDateInConversionRange,
-  lookUp
+  look_up_default as lookUp
 };
