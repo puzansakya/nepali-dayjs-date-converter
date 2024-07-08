@@ -1,6 +1,6 @@
 import dayjs from "dayjs"
 import lookUp from "./look-up";
-import { zeroPad } from "../zero-pad";
+import { zero_pad } from "../zero-pad";
 
 const en_ref_date = "1943-04-14"
 
@@ -66,7 +66,7 @@ export const ad2bs = (date: string) => {
 
     let resolved_year = value_arr[found_index].year
 
-    return `${resolved_year}-${zeroPad(nep_mm)}-${zeroPad(nep_dd)}`
+    return `${resolved_year}-${zero_pad(nep_mm)}-${zero_pad(nep_dd)}`
 }
 
 export const bs2ad = (date: string) => {

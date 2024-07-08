@@ -2,8 +2,9 @@
 import { ad2bs, bs2ad } from './converter';
 import lookUp from './converter/look-up';
 import { isDateInConversionRange } from './is-date-in-conversion-range';
+import { zero_pad } from './zero-pad';
 
-export { ad2bs, bs2ad, lookUp, isDateInConversionRange };
+export { ad2bs, bs2ad, lookUp, isDateInConversionRange, zero_pad };
 export { ad2bs as ADToBS, bs2ad as BSToAD }
 export {
     MAX_ENG_DAY,
