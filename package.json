@@ -2,9 +2,6 @@
   "name": "nepali-dayjs-date-converter",
   "version": "0.8.2",
   "description": "",
-  "main": "./dist/index.js",
-  "module": "./dist/index.esm.js",
-  "types": "./dist/index.d.ts",
   "homepage": "https://github.com/puzansakya/nepali-dayjs-date-converter",
   "bugs": {
     "url": "https://github.com/puzansakya/nepali-dayjs-date-converter"
@@ -15,8 +12,14 @@
   },
   "license": "MIT",
   "author": "Puzan Sakya",
+  "main": "./dist/index.js",
+  "module": "./dist/index.esm.js",
+  "types": "./dist/index.d.ts",
   "directories": {
     "lib": "lib"
+  },
+  "exports": {
+    ".": "./dist/index.js"
   },
   "files": [
     "/dist"
