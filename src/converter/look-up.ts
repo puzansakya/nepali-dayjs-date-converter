@@ -1,4 +1,4 @@
-export const lookUp = {
+export const dataset = {
   "365": {
     "year": 2000,
     "month_days": [
@@ -1824,3 +1824,51 @@ export const lookUp = {
     ]
   }
 }
+
+
+
+/**
+ * query list of total days in each month of given year
+ * 
+ * @param year 
+ * @returns // [0, 29, 30, ....., 365] 
+ */
+export const queryMonthDays = (year: number | string) => {
+  if (typeof year === "string") {
+    year = parseInt(year)
+  }
+
+  const value_arr = Object.values(dataset)
+
+  const found = value_arr.find((o) => {
+    return o.year === year
+  })
+
+  return found?.month_days
+}
+
+/**
+ * query total number of days in given year and month
+ * @param year 
+ * @param month 
+ * @returns 
+ */
+export const queryDays = (year: number | string, month: number | string) => {
+  if (typeof year === "string") {
+    year = parseInt(year)
+  }
+
+  if (typeof month === "string") {
+    month = parseInt(month)
+  }
+
+  return queryMonthDays(year)?.[month]
+}
+
+const lookUp =  {
+  dataset,
+  queryMonthDays,
+  queryDays
+}
+
+export default lookUp;

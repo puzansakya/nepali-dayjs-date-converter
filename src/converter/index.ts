@@ -1,5 +1,5 @@
 import dayjs from "dayjs"
-import { lookUp } from "./look-up";
+import lookUp from "./look-up";
 import { zeroPad } from "../zero-pad";
 
 const en_ref_date = "1943-04-14"
@@ -31,10 +31,10 @@ export const ad2bs = (date: string) => {
 
     const total_days = dayjs(date).diff(en_ref_date, "day");
 
-    const accumulator_arr = Object.keys(lookUp).map(o => parseInt(o))
-    const value_arr = Object.values(lookUp)
+    const accumulator_arr = Object.keys(lookUp.dataset).map(o => parseInt(o))
+    const value_arr = Object.values(lookUp.dataset)
 
-    const found_index = binarySearch(accumulator_arr, total_days)
+    const found_index:any = binarySearch(accumulator_arr, total_days)
 
 
     let diff = total_days - accumulator_arr[found_index]
@@ -72,8 +72,8 @@ export const ad2bs = (date: string) => {
 export const bs2ad = (date: string) => {
 
     const [year, month, day] = date.split("-")
-    const accumulator_arr = Object.keys(lookUp).map(o => parseInt(o))
-    const value_arr = Object.values(lookUp)
+    const accumulator_arr = Object.keys(lookUp.dataset).map(o => parseInt(o))
+    const value_arr = Object.values(lookUp.dataset)
 
     const found_index = value_arr.findIndex((o) => {
         return o.year === parseInt(year)

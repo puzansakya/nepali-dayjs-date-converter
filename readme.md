@@ -1,6 +1,6 @@
 [Npm Lib](https://www.npmjs.com/package/nepali-date-carburettor)
 
-### Nepali Date Carburettor
+### Overview
 Converts english date string to nepali date string, always returns in the format of `YYYY-MM-DD`,
 
 ### Caveat
